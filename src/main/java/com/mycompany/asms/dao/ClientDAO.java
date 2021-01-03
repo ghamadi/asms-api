@@ -33,7 +33,7 @@ public class ClientDAO extends EntityDAO {
 
     @Override
     public void updateByID(String oldEntityID, Entity newEntity) {
-        var condition = String.format("WHERE id = %s", oldEntityID);
+        String condition = String.format("WHERE id = %s", oldEntityID);
         super.update(TBL_CLIENTS, condition, newEntity);
     }
 
@@ -48,7 +48,7 @@ public class ClientDAO extends EntityDAO {
     }
 
     private LinkedHashMap<String, ? extends Entity> selectClients(String condition){
-        var sql = String.format("SELECT * FROM %s %s", TBL_CLIENTS, condition);
+        String sql = String.format("SELECT * FROM %s %s", TBL_CLIENTS, condition);
         RowMapper<Client> mapper = (resultSet, i) -> {
             Client client = new Client();
             client.setId(String.valueOf(resultSet.getInt(ID)));

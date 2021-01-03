@@ -36,7 +36,7 @@ public class PaymentDAO extends EntityDAO {
 
     @Override
     public void updateByID(String oldEntityID, Entity newEntity) {
-        var condition = String.format("WHERE id = %s", oldEntityID);
+        String condition = String.format("WHERE id = %s", oldEntityID);
         super.update(TBL_PAYMENTS, condition, newEntity);
     }
 
@@ -47,7 +47,7 @@ public class PaymentDAO extends EntityDAO {
     }
 
     public LinkedHashMap<String, ? extends Entity> selectByIDs(String[] entityIDs, String projectID) {
-        var condition = buildOrCondition(ID, entityIDs);
+        String condition = buildOrCondition(ID, entityIDs);
         condition += condition.indexOf("WHERE") >= 0 ? " AND project_id = " + projectID : "WHERE project_id = " + projectID;
         return selectPayments(condition);
     }
@@ -58,7 +58,7 @@ public class PaymentDAO extends EntityDAO {
     }
 
     private LinkedHashMap<String, ? extends Entity> selectPayments(String condition) {
-        var sql = String.format("SELECT * FROM %s %s", TBL_PAYMENTS, condition);
+        String sql = String.format("SELECT * FROM %s %s", TBL_PAYMENTS, condition);
         RowMapper<Payment> mapper = (resultSet, i) -> {
             Payment payment = new Payment();
             payment.setId(String.valueOf(resultSet.getInt(ID)));

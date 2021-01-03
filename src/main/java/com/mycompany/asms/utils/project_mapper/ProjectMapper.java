@@ -1,6 +1,9 @@
 package com.mycompany.asms.utils.project_mapper;
 
+import com.mycompany.asms.model.Payment;
 import com.mycompany.asms.model.Project;
+import com.mycompany.asms.model.ProjectSection;
+import com.mycompany.asms.model.SectionCompartment;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,12 +17,12 @@ public class ProjectMapper {
     }
 
     public LinkedHashMap<String, Project> map() {
-        var map = new LinkedHashMap<String, Project>();
-        for (var cp : complexProjects) {
-            var project = cp.getProject();
-            var section = cp.getSection();
-            var compartment = cp.getCompartment();
-            var payment = cp.getPayment();
+        LinkedHashMap<String, Project> map = new LinkedHashMap<String, Project>();
+        for (ComplexProject cp : complexProjects) {
+            Project project = cp.getProject();
+            ProjectSection section = cp.getSection();
+            SectionCompartment compartment = cp.getCompartment();
+            Payment payment = cp.getPayment();
 
             if(project == null)
                 continue;
@@ -38,7 +41,7 @@ public class ProjectMapper {
                 continue;
             }
 
-            var storedProject = map.get(project.getId());
+            Project storedProject = map.get(project.getId());
 
             if(payment != null && !storedProject.hasPayment(payment))
                 storedProject.addPayment(payment);

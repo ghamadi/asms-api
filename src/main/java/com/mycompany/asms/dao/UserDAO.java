@@ -83,7 +83,7 @@ public class UserDAO extends EntityDAO {
 
     @Override
     public void updateByID(String oldEntityID, Entity newEntity) {
-        var condition = String.format("WHERE id = %s", new Value<>(oldEntityID).get());
+        String condition = String.format("WHERE id = %s", new Value<>(oldEntityID).get());
         super.update(TBL_USERS, condition, newEntity);
     }
 
@@ -109,7 +109,7 @@ public class UserDAO extends EntityDAO {
     }
 
     private LinkedHashMap<String, ? extends Entity> selectUsers(String condition) {
-        var sql = String.format("SELECT * FROM %s %s", TBL_USERS, condition).trim();
+        String sql = String.format("SELECT * FROM %s %s", TBL_USERS, condition).trim();
         RowMapper<User> mapper = (resultSet, i) -> {
             User user = new User();
             user.setId(resultSet.getString(ID));

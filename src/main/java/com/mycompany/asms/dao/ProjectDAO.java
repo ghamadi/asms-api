@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @EnableTransactionManagement
 @Repository("project_dao")
@@ -92,8 +93,8 @@ public class ProjectDAO extends EntityDAO {
         long projectId = super.insert(TBL_PRJ, p);
 
         if (p.getSections() != null && p.getSections().size() > 0) {
-            for (var sectionEntry : p.getSections().entrySet()) {
-                var section = sectionEntry.getValue();
+            for (Map.Entry<String, ProjectSection> sectionEntry : p.getSections().entrySet()) {
+                ProjectSection section = sectionEntry.getValue();
                 section.setProjectId(String.valueOf(projectId));
                 addSectionToProject(section);
             }
@@ -102,12 +103,12 @@ public class ProjectDAO extends EntityDAO {
     }
 
     private void addSectionToProject(ProjectSection section) {
-        var sectionId = super.insert("project_sections", section);
+        long sectionId = super.insert("project_sections", section);
         section.setId(String.valueOf(sectionId));
         if (section.getCompartments() != null && section.getCompartments().size() > 0) {
             String sql = "";
-            for (var compEntry : section.getCompartments().entrySet()) {
-                var compartment = compEntry.getValue();
+            for (Map.Entry<String, SectionCompartment> compEntry : section.getCompartments().entrySet()) {
+                SectionCompartment compartment = compEntry.getValue();
                 compartment.setProjectSectionId(section.getId());
                 super.insert("section_compartments", compartment);
             }
@@ -117,8 +118,8 @@ public class ProjectDAO extends EntityDAO {
     @Override
     @Transactional
     public void updateByID(String oldEntityID, Entity newEntity) {
-        var condition = String.format("WHERE id = %s", oldEntityID);
-        var p = (Project) newEntity;
+        String condition = String.format("WHERE id = %s", oldEntityID);
+        Project p = (Project) newEntity;
         super.update(TBL_PRJ, condition, p);
 
         //Because this application is meant to be used on localhost only, deleting sections and then re-adding them will be fast enough (even though updating every section and its components may be faster)
@@ -127,8 +128,8 @@ public class ProjectDAO extends EntityDAO {
         jdbcTemplate.update(deleteSectionsSql);
 
         if (p.getSections() != null && p.getSections().size() > 0) {
-            for (var sectionEntry : p.getSections().entrySet()) {
-                var section = sectionEntry.getValue();
+            for (Map.Entry<String, ProjectSection> sectionEntry : p.getSections().entrySet()) {
+                ProjectSection section = sectionEntry.getValue();
                 section.setProjectId(String.valueOf(oldEntityID));
                 addSectionToProject(section);
             }
@@ -137,7 +138,7 @@ public class ProjectDAO extends EntityDAO {
 
     @Override
     public LinkedHashMap<String, ? extends Entity> selectByIDs(String[] entityIDs) {
-        var condition = buildOrCondition("p.id", entityIDs);
+        String condition = buildOrCondition("p.id", entityIDs);
 
         //Decided to skip the "simple project" approach. Having all the info related to all the projects is better for a SPA
 //        if(condition.isBlank())
@@ -153,10 +154,10 @@ public class ProjectDAO extends EntityDAO {
 
 
     private LinkedHashMap<String, ? extends Entity> selectProjectsSimple(String condition) {
-        var sql = String.format(SIMPLE_PROJECT_QUERY, TBL_PRJ, condition);
+        String sql = String.format(SIMPLE_PROJECT_QUERY, TBL_PRJ, condition);
 
         RowMapper<Project> mapper = (resultSet, i) -> {
-            var project = buildProjectFromResultSet(resultSet);
+            Project project = buildProjectFromResultSet(resultSet);
             project.setPayments(null);
             project.setSections(null);
             return project;
@@ -165,12 +166,12 @@ public class ProjectDAO extends EntityDAO {
     }
 
     private LinkedHashMap<String, ? extends Entity> selectProjectsDetailed(String condition) {
-        var sql = String.format(DETAILED_PROJECT_QUERY, condition);
+        String sql = String.format(DETAILED_PROJECT_QUERY, condition);
         RowMapper<ComplexProject> mapper = (resultSet, i) -> {
-            var project = buildProjectFromResultSet(resultSet);
-            var section = buildProjectSectionFromResultSet(resultSet);
-            var compartment = buildSectionCompartmentFromResultSet(resultSet);
-            var payment = buildPaymentFromResultSet(resultSet);
+            Project project = buildProjectFromResultSet(resultSet);
+            ProjectSection section = buildProjectSectionFromResultSet(resultSet);
+            SectionCompartment compartment = buildSectionCompartmentFromResultSet(resultSet);
+            Payment payment = buildPaymentFromResultSet(resultSet);
             return new ComplexProject(project, section, compartment, payment);
         };
         List<ComplexProject> complexProjects = super.selectAsList(sql, mapper);
@@ -201,7 +202,7 @@ public class ProjectDAO extends EntityDAO {
 
     private ProjectSection buildProjectSectionFromResultSet(ResultSet resultSet) throws SQLException {
         ProjectSection ps = new ProjectSection();
-        var id = String.valueOf(resultSet.getInt("section_id"));
+        String id = String.valueOf(resultSet.getInt("section_id"));
 
         if (id.equals("0")) return null;
 
@@ -214,7 +215,7 @@ public class ProjectDAO extends EntityDAO {
     private SectionCompartment buildSectionCompartmentFromResultSet(ResultSet resultSet) throws SQLException {
         SectionCompartment sc = new SectionCompartment();
 
-        var id = String.valueOf(resultSet.getInt("compartment_id"));
+        String id = String.valueOf(resultSet.getInt("compartment_id"));
 
         if (id.equals("0")) return null;
 
@@ -242,7 +243,7 @@ public class ProjectDAO extends EntityDAO {
 
     private Payment buildPaymentFromResultSet(ResultSet resultSet) throws SQLException {
         Payment p = new Payment();
-        var id = String.valueOf(resultSet.getInt("payment_id"));
+        String id = String.valueOf(resultSet.getInt("payment_id"));
         if (id.equals("0")) return null;
         p.setId(id);
         p.setPaymentDate(resultSet.getDate("payment_date"));

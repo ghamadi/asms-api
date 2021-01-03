@@ -38,7 +38,7 @@ public abstract class EntityDAO {
      * @return LinkedHashMap mapping Entity id to Entity
      */
     protected <T extends Entity> LinkedHashMap<String, T> select(String sql, RowMapper<T> mapper) {
-        var items = selectAsList(sql, mapper);
+        List<T> items = selectAsList(sql, mapper);
         return items.stream()
                 .collect(Collectors.toMap(Entity::getId, entity -> entity, (e1, e2) -> e1, LinkedHashMap::new));
     }
@@ -81,7 +81,7 @@ public abstract class EntityDAO {
      * @return the id
      */
     protected <T extends Entity> long insert(String tblName, T entity) {
-        var sql = buildInsertStatement(tblName, entity);
+        String sql = buildInsertStatement(tblName, entity);
         return insert(sql);
     }
 
@@ -94,7 +94,7 @@ public abstract class EntityDAO {
      */
     protected <T extends Entity> long insert(String sql) {
         try {
-            var keyHolder = new GeneratedKeyHolder();
+            GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
             jdbcTemplate.update(connection -> connection.prepareCall(sql), keyHolder);
             return keyHolder.getKey() != null ? keyHolder.getKey().longValue() : 0;
         } catch (DataIntegrityViolationException e){
@@ -121,7 +121,7 @@ public abstract class EntityDAO {
      */
     protected <T extends Entity> void update(String tblName, String condition, T newEntity) {
         int recordsUpdated;
-        var sql = buildUpdateStatement(tblName, condition, newEntity);
+        String sql = buildUpdateStatement(tblName, condition, newEntity);
         try {
             recordsUpdated = jdbcTemplate.update(sql);
         } catch (DataIntegrityViolationException e) {
@@ -140,7 +140,7 @@ public abstract class EntityDAO {
      * @param condition the condition on which the record is to be found and deleted
      */
     protected void delete(String tblName, String condition) {
-        var sql = String.format("DELETE FROM %s %s", tblName, condition);
+        String sql = String.format("DELETE FROM %s %s", tblName, condition);
         try {
             if (jdbcTemplate.update(sql) == 0 && condition != null && !condition.isBlank())
                 throw new RecordNotFoundException();
@@ -161,7 +161,7 @@ public abstract class EntityDAO {
      */
     protected String buildOrCondition(String fieldName, String[] values) {
         if (values == null || values.length < 1) return "";
-        var valuesString = Arrays.stream(values)
+        String valuesString = Arrays.stream(values)
                 .map(id -> String.format("%s = %s", fieldName, new Value<>(id).get()))
                 .collect(Collectors.joining(" OR "));
         return String.format("WHERE %s", valuesString);

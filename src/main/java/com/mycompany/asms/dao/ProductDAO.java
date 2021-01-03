@@ -34,7 +34,7 @@ public class ProductDAO extends EntityDAO{
 
     @Override
     public void updateByID(String oldEntityID, Entity newEntity) {
-        var condition = String.format("WHERE id = %s", oldEntityID);
+        String condition = String.format("WHERE id = %s", oldEntityID);
         super.update(TBL_PRD, condition, newEntity);
     }
 
@@ -49,7 +49,7 @@ public class ProductDAO extends EntityDAO{
     }
 
     private LinkedHashMap<String, ? extends Entity> selectProducts(String condition) {
-        var sql = String.format("SELECT * FROM %s %s", TBL_PRD, condition);
+        String sql = String.format("SELECT * FROM %s %s", TBL_PRD, condition);
         RowMapper<Product> mapper = ((resultSet, i) -> {
             Product p = new Product();
             p.setId(String.valueOf(resultSet.getInt(ID)));

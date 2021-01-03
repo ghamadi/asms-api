@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="asms:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../asms_app/pages/projects.vue" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1dUIehe3n1PvmQPruVu3954uN9D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.mycompany.asms.security" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AsmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="asms" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mycompany.asms.AsmsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="" />
+      <created>1592473341483</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592473341483</updated>
+      <workItem from="1592473345290" duration="16133000" />
+      <workItem from="1592555570372" duration="853000" />
+      <workItem from="1592556457042" duration="5000" />
+      <workItem from="1592664474744" duration="9260000" />
+      <workItem from="1593952463730" duration="4105000" />
+      <workItem from="1594019079076" duration="1856000" />
+      <workItem from="1594052559225" duration="3188000" />
+      <workItem from="1594139120648" duration="17489000" />
+      <workItem from="1594216251998" duration="603000" />
+      <workItem from="1594227611738" duration="7000" />
+      <workItem from="1594456625419" duration="3238000" />
+      <workItem from="1594556269173" duration="620000" />
+      <workItem from="1594627320398" duration="1221000" />
+      <workItem from="1594712286963" duration="634000" />
+      <workItem from="1594741451123" duration="1277000" />
+      <workItem from="1594829920833" duration="726000" />
+      <workItem from="1594836841577" duration="623000" />
+      <workItem from="1594882399557" duration="2252000" />
+      <workItem from="1595059223875" duration="1392000" />
+      <workItem from="1595099007986" duration="613000" />
+      <workItem from="1595148049647" duration="1036000" />
+      <workItem from="1595159344839" duration="1258000" />
+      <workItem from="1595246588009" duration="1198000" />
+      <workItem from="1595415739831" duration="3764000" />
+      <workItem from="1595487279302" duration="3645000" />
+      <workItem from="1595495856558" duration="615000" />
+      <workItem from="1595509345052" duration="911000" />
+      <workItem from="1595578093435" duration="614000" />
+      <workItem from="1595592070983" duration="692000" />
+      <workItem from="1595608709702" duration="1622000" />
+      <workItem from="1595662018472" duration="1877000" />
+      <workItem from="1595668335703" duration="606000" />
+      <workItem from="1595693739547" duration="604000" />
+      <workItem from="1595753952997" duration="1195000" />
+      <workItem from="1595776149708" duration="1015000" />
+      <workItem from="1595839898347" duration="1249000" />
+      <workItem from="1595922906017" duration="1874000" />
+      <workItem from="1595959991712" duration="629000" />
+      <workItem from="1596099701666" duration="4746000" />
+      <workItem from="1596118870521" duration="916000" />
+      <workItem from="1596187949591" duration="1730000" />
+      <workItem from="1596213056060" duration="638000" />
+      <workItem from="1596270256539" duration="632000" />
+      <workItem from="1596356456628" duration="9627000" />
+      <workItem from="1596389209817" duration="825000" />
+      <workItem from="1596450516628" duration="23698000" />
+      <workItem from="1596524417396" duration="5834000" />
+      <workItem from="1596609813070" duration="1838000" />
+      <workItem from="1596612077403" duration="1521000" />
+      <workItem from="1596614423692" duration="1997000" />
+      <workItem from="1596638812715" duration="2255000" />
+      <workItem from="1596654020313" duration="7000" />
+      <workItem from="1596654039760" duration="95000" />
+      <workItem from="1609710095090" duration="12000" />
+    </task>
+    <task id="LOCAL-00001" summary="Incomplete steps towards an authentication API">
+      <created>1592556217048</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592556217048</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implemented JWT Authentication&#10;&#10;Server now receives a request and sends back a JWT">
+      <created>1592672692999</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592672692999</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Completed JWT Implementation&#10;&#10;Server now reads the JWT sent by the user and sends back data only if the user is Authorized">
+      <created>1592682477377</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592682477377</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Incomplete steps towards an authentication API" />
+    <MESSAGE value="Implemented JWT Authentication&#10;&#10;Server now receives a request and sends back a JWT" />
+    <MESSAGE value="Completed JWT Implementation&#10;&#10;Server now reads the JWT sent by the user and sends back data only if the user is Authorized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed JWT Implementation&#10;&#10;Server now reads the JWT sent by the user and sends back data only if the user is Authorized" />
+  </component>
+</project>

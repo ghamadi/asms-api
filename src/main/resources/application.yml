@@ -1,0 +1,8 @@
+app:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/asms_db
+server:
+  port: 8085
+JwlKey:
+  val: Secret_Key22

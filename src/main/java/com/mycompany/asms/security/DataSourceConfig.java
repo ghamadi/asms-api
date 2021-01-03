@@ -17,8 +17,8 @@ public class DataSourceConfig {
     public DataSource getDataSource() {
         return DataSourceBuilder.create()
                 .type(HikariDataSource.class)
-                .username("root")
-                .password("")
+                .username("v3jvnr81ocftcyix")
+                .password("yp3187e4a6954jph")
                 .build();
     }
 }

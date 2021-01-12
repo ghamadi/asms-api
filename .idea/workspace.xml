@@ -28,12 +28,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_session_spring_session_1_3_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/asms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +52,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1dUIehe3n1PvmQPruVu3954uN9D" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

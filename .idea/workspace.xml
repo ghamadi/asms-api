@@ -28,10 +28,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/asms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,13 +70,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -81,13 +84,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,7 +170,8 @@
       <workItem from="1596654020313" duration="7000" />
       <workItem from="1596654039760" duration="95000" />
       <workItem from="1609710095090" duration="12000" />
-      <workItem from="1609710360550" duration="3465000" />
+      <workItem from="1609710360550" duration="3733000" />
+      <workItem from="1610472731834" duration="4544000" />
     </task>
     <task id="LOCAL-00001" summary="Incomplete steps towards an authentication API">
       <created>1592556217048</created>
@@ -188,7 +194,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592682477377</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="committing automatic file changes done by Intellij">
+      <created>1609713914248</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609713914248</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed problem with the http cookie&#10;&#10;Added SameSite=None and Secure to the refresh_token http cookie">
+      <created>1610476902014</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610476902014</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,9 +227,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$USER_HOME$" />
+    </ignored-roots>
     <MESSAGE value="Incomplete steps towards an authentication API" />
     <MESSAGE value="Implemented JWT Authentication&#10;&#10;Server now receives a request and sends back a JWT" />
     <MESSAGE value="Completed JWT Implementation&#10;&#10;Server now reads the JWT sent by the user and sends back data only if the user is Authorized" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed JWT Implementation&#10;&#10;Server now reads the JWT sent by the user and sends back data only if the user is Authorized" />
+    <MESSAGE value="committing automatic file changes done by Intellij" />
+    <MESSAGE value="Fixed problem with the http cookie&#10;&#10;Added SameSite=None and Secure to the refresh_token http cookie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed problem with the http cookie&#10;&#10;Added SameSite=None and Secure to the refresh_token http cookie" />
   </component>
 </project>

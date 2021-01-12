@@ -28,8 +28,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/security/SameSiteInjector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_0_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_session_spring_session_1_3_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/asms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/asms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +49,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="e0feeb37c7a0786a03e9bc18b7671370a5c7e3dc" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="1dUIehe3n1PvmQPruVu3954uN9D" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -203,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610476902014</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reverted back to old state">
+      <created>1610479921317</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610479921317</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +247,7 @@
     <MESSAGE value="Completed JWT Implementation&#10;&#10;Server now reads the JWT sent by the user and sends back data only if the user is Authorized" />
     <MESSAGE value="committing automatic file changes done by Intellij" />
     <MESSAGE value="Fixed problem with the http cookie&#10;&#10;Added SameSite=None and Secure to the refresh_token http cookie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed problem with the http cookie&#10;&#10;Added SameSite=None and Secure to the refresh_token http cookie" />
+    <MESSAGE value="Reverted back to old state" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reverted back to old state" />
   </component>
 </project>

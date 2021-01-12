@@ -108,7 +108,7 @@ public class WebController {
     @GetMapping("/exit")
     public ResponseEntity<?> logout(@RequestHeader(value = "Authorization") String jwt) {
         int recordsUpdated = new UserDAO(jdbcTemplate).updateRefreshToken(null, jwtUtil.extractUsername(jwt.substring("bearer_".length())));
-        String cookie = "refresh_token=; Max-Age=0; SameSite=None; Secure; HttpOnly";
+        String cookie = "refresh_token=; Max-Age=0; SameSite=None; Secure=true; HttpOnly";
         HttpHeaders headers = new HttpHeaders();
         headers.add("Set-Cookie", cookie);
 

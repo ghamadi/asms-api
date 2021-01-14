@@ -99,7 +99,7 @@ public class WebController {
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-        if (userDAO.getRefreshToken(username).equals(refreshToken) && expTime < System.currentTimeMillis())
+        if (userDAO.getRefreshToken(username) != null && userDAO.getRefreshToken(username).equals(refreshToken) && expTime < System.currentTimeMillis())
             return sendAuthenticationResponse(userDetails);
         else
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid refresh token");

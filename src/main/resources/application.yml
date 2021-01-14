@@ -1,7 +1,7 @@
 app:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    jdbcUrl: jdbc:mysql://v3jvnr81ocftcyix:yp3187e4a6954jph@r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/ok4agql431sr45t0
+    jdbc-url: jdbc:mysql://v3jvnr81ocftcyix:yp3187e4a6954jph@r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/ok4agql431sr45t0
 server:
   port: 8085
 JwlKey:

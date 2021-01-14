@@ -28,8 +28,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/dao/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/dao/ProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/model/ProjectSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/model/ProjectSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/model/SectionCompartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/model/SectionCompartment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,19 +91,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AsmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="asms" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.mycompany.asms.AsmsApplication" />
@@ -176,6 +166,9 @@
       <workItem from="1609710095090" duration="12000" />
       <workItem from="1609710360550" duration="3733000" />
       <workItem from="1610472731834" duration="4544000" />
+      <workItem from="1610537710157" duration="437000" />
+      <workItem from="1610538176137" duration="387000" />
+      <workItem from="1610640739026" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="Incomplete steps towards an authentication API">
       <created>1592556217048</created>

@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Date;
 import java.util.LinkedHashMap;
 
-@JsonPropertyOrder({"id", "title", "status", "delivery_date", "client_id", "client", "total_due", "payments", "sections"})
+@JsonPropertyOrder({"id", "title", "status", "delivery_date", "client_id", "client", "total_due",
+        "total_paid", "total_lengths", "total_widths", "payments", "sections"})
 public class Project extends Entity {
 
     @JsonProperty
@@ -140,9 +141,39 @@ public class Project extends Entity {
     public Double getTotalDue(){
         if(sections == null || sections.isEmpty()) return null;
         return sections.values().stream()
-                                .map(ProjectSection::totalDuePerSection)
-                                .reduce(Double::sum)
-                                .get();
+                .map(ProjectSection::totalDuePerSection)
+                .reduce(Double::sum)
+                .get();
+    }
+
+    @JsonProperty("total_cost")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Double getTotalCost(){
+        if(sections == null || sections.isEmpty()) return null;
+        return sections.values().stream()
+                .map(ProjectSection::totalDuePerSection)
+                .reduce(Double::sum)
+                .get();
+    }
+
+    @JsonProperty("total_lengths")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Double getTotalLengths() {
+        if(sections == null || sections.isEmpty()) return null;
+        return sections.values().stream()
+                .map(ProjectSection::totalLengthsPerSection)
+                .reduce(Double::sum)
+                .get();
+    }
+
+    @JsonProperty("total_widths")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Double getTotalWidths() {
+        if(sections == null || sections.isEmpty()) return null;
+        return sections.values().stream()
+                .map(ProjectSection::totalWidthsPerSection)
+                .reduce(Double::sum)
+                .get();
     }
 
     @JsonProperty("total_paid")

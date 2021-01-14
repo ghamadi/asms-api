@@ -11,10 +11,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 @EnableTransactionManagement
 @Repository("project_dao")
@@ -34,7 +34,9 @@ public class ProjectDAO extends EntityDAO {
             PRD_ID = "product_id",
             LENGTH = "length",
             WIDTH = "width",
-            UNIT_PRICE = "unit_price";
+            UNIT_PRICE = "unit_price",
+            UNIT_COST = "unit_cost",
+            OTHER_COSTS = "other_costs";
 
     private static final String DETAILED_PROJECT_QUERY = "SELECT p.id AS id, p.title AS title, p.status AS status, p.delivery_date AS delivery_date, p.init_date AS init_date, " +
             "c.id As client_id, c.name AS client_name, c.phone AS client_phone, c.address AS client_address, " +
@@ -43,7 +45,7 @@ public class ProjectDAO extends EntityDAO {
             "dps.compartment_name AS compartment_name, dps.product_id AS product_id, " +
             "dps.product_type AS product_type, dps.product_name AS product_name, dps.sales_unit AS sales_unit, " +
             "dps.default_unit_price AS default_unit_price, dps.length AS length, " +
-            "dps.width AS width, dps.unit_price AS unit_price, " +
+            "dps.width AS width, dps.unit_price AS unit_price, dps.unit_cost, dps.other_costs, " +
             "pmt.id AS payment_id, pmt.payment_date, pmt.check_num, pmt.amount AS payment_amount " +
             "FROM projects p " +
             "JOIN clients c on p.client_id = c.id " +
@@ -52,7 +54,7 @@ public class ProjectDAO extends EntityDAO {
             "section_description, sc.id AS compartment_id,sc.compartment_name AS compartment_name, " +
             "prd.id AS product_id,prd.product_type AS product_type,prd.product_name AS product_name," +
             "prd.sales_unit AS sales_unit,prd.unit_price AS default_unit_price, " +
-            "sc.length AS length, sc.width AS width,sc.unit_price AS unit_price " +
+            "sc.length AS length, sc.width AS width, sc.unit_price AS unit_price, sc.unit_cost AS unit_cost, sc.other_costs AS other_costs " +
             "FROM project_sections ps " +
             "LEFT JOIN section_compartments sc on ps.id = sc.project_section_id " +
             "LEFT JOIN products prd on sc.product_id = prd.id " +
@@ -80,7 +82,8 @@ public class ProjectDAO extends EntityDAO {
         fieldsToColumns.put("length", LENGTH);
         fieldsToColumns.put("width", WIDTH);
         fieldsToColumns.put("unitPrice", UNIT_PRICE);
-
+        fieldsToColumns.put("unitCost", UNIT_COST);
+        fieldsToColumns.put("otherCosts", OTHER_COSTS);
     }
 
 
@@ -93,8 +96,8 @@ public class ProjectDAO extends EntityDAO {
         long projectId = super.insert(TBL_PRJ, p);
 
         if (p.getSections() != null && p.getSections().size() > 0) {
-            for (Map.Entry<String, ProjectSection> sectionEntry : p.getSections().entrySet()) {
-                ProjectSection section = sectionEntry.getValue();
+            for (var sectionEntry : p.getSections().entrySet()) {
+                var section = sectionEntry.getValue();
                 section.setProjectId(String.valueOf(projectId));
                 addSectionToProject(section);
             }
@@ -103,12 +106,12 @@ public class ProjectDAO extends EntityDAO {
     }
 
     private void addSectionToProject(ProjectSection section) {
-        long sectionId = super.insert("project_sections", section);
+        var sectionId = super.insert("project_sections", section);
         section.setId(String.valueOf(sectionId));
         if (section.getCompartments() != null && section.getCompartments().size() > 0) {
             String sql = "";
-            for (Map.Entry<String, SectionCompartment> compEntry : section.getCompartments().entrySet()) {
-                SectionCompartment compartment = compEntry.getValue();
+            for (var compEntry : section.getCompartments().entrySet()) {
+                var compartment = compEntry.getValue();
                 compartment.setProjectSectionId(section.getId());
                 super.insert("section_compartments", compartment);
             }
@@ -118,8 +121,8 @@ public class ProjectDAO extends EntityDAO {
     @Override
     @Transactional
     public void updateByID(String oldEntityID, Entity newEntity) {
-        String condition = String.format("WHERE id = %s", oldEntityID);
-        Project p = (Project) newEntity;
+        var condition = String.format("WHERE id = %s", oldEntityID);
+        var p = (Project) newEntity;
         super.update(TBL_PRJ, condition, p);
 
         //Because this application is meant to be used on localhost only, deleting sections and then re-adding them will be fast enough (even though updating every section and its components may be faster)
@@ -128,8 +131,8 @@ public class ProjectDAO extends EntityDAO {
         jdbcTemplate.update(deleteSectionsSql);
 
         if (p.getSections() != null && p.getSections().size() > 0) {
-            for (Map.Entry<String, ProjectSection> sectionEntry : p.getSections().entrySet()) {
-                ProjectSection section = sectionEntry.getValue();
+            for (var sectionEntry : p.getSections().entrySet()) {
+                var section = sectionEntry.getValue();
                 section.setProjectId(String.valueOf(oldEntityID));
                 addSectionToProject(section);
             }
@@ -138,7 +141,7 @@ public class ProjectDAO extends EntityDAO {
 
     @Override
     public LinkedHashMap<String, ? extends Entity> selectByIDs(String[] entityIDs) {
-        String condition = buildOrCondition("p.id", entityIDs);
+        var condition = buildOrCondition("p.id", entityIDs);
 
         //Decided to skip the "simple project" approach. Having all the info related to all the projects is better for a SPA
 //        if(condition.isBlank())
@@ -154,10 +157,10 @@ public class ProjectDAO extends EntityDAO {
 
 
     private LinkedHashMap<String, ? extends Entity> selectProjectsSimple(String condition) {
-        String sql = String.format(SIMPLE_PROJECT_QUERY, TBL_PRJ, condition);
+        var sql = String.format(SIMPLE_PROJECT_QUERY, TBL_PRJ, condition);
 
         RowMapper<Project> mapper = (resultSet, i) -> {
-            Project project = buildProjectFromResultSet(resultSet);
+            var project = buildProjectFromResultSet(resultSet);
             project.setPayments(null);
             project.setSections(null);
             return project;
@@ -166,12 +169,12 @@ public class ProjectDAO extends EntityDAO {
     }
 
     private LinkedHashMap<String, ? extends Entity> selectProjectsDetailed(String condition) {
-        String sql = String.format(DETAILED_PROJECT_QUERY, condition);
+        var sql = String.format(DETAILED_PROJECT_QUERY, condition);
         RowMapper<ComplexProject> mapper = (resultSet, i) -> {
-            Project project = buildProjectFromResultSet(resultSet);
-            ProjectSection section = buildProjectSectionFromResultSet(resultSet);
-            SectionCompartment compartment = buildSectionCompartmentFromResultSet(resultSet);
-            Payment payment = buildPaymentFromResultSet(resultSet);
+            var project = buildProjectFromResultSet(resultSet);
+            var section = buildProjectSectionFromResultSet(resultSet);
+            var compartment = buildSectionCompartmentFromResultSet(resultSet);
+            var payment = buildPaymentFromResultSet(resultSet);
             return new ComplexProject(project, section, compartment, payment);
         };
         List<ComplexProject> complexProjects = super.selectAsList(sql, mapper);
@@ -202,7 +205,7 @@ public class ProjectDAO extends EntityDAO {
 
     private ProjectSection buildProjectSectionFromResultSet(ResultSet resultSet) throws SQLException {
         ProjectSection ps = new ProjectSection();
-        String id = String.valueOf(resultSet.getInt("section_id"));
+        var id = String.valueOf(resultSet.getInt("section_id"));
 
         if (id.equals("0")) return null;
 
@@ -215,7 +218,7 @@ public class ProjectDAO extends EntityDAO {
     private SectionCompartment buildSectionCompartmentFromResultSet(ResultSet resultSet) throws SQLException {
         SectionCompartment sc = new SectionCompartment();
 
-        String id = String.valueOf(resultSet.getInt("compartment_id"));
+        var id = String.valueOf(resultSet.getInt("compartment_id"));
 
         if (id.equals("0")) return null;
 
@@ -227,6 +230,8 @@ public class ProjectDAO extends EntityDAO {
         sc.setUnitPrice(resultSet.getDouble("unit_price"));
         sc.setLength(resultSet.getDouble("length"));
         sc.setWidth(resultSet.getDouble("width"));
+        sc.setUnitCost(resultSet.getDouble("unit_cost"));
+        sc.setOtherCosts(resultSet.getDouble("other_costs"));
         sc.setProduct(buildProductFromResultSet(resultSet));
         return sc;
     }
@@ -243,7 +248,7 @@ public class ProjectDAO extends EntityDAO {
 
     private Payment buildPaymentFromResultSet(ResultSet resultSet) throws SQLException {
         Payment p = new Payment();
-        String id = String.valueOf(resultSet.getInt("payment_id"));
+        var id = String.valueOf(resultSet.getInt("payment_id"));
         if (id.equals("0")) return null;
         p.setId(id);
         p.setPaymentDate(resultSet.getDate("payment_date"));

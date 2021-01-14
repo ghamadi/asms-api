@@ -1110,118 +1110,130 @@
       <NotNull>1</NotNull>
       <DefaultExpression>0.00</DefaultExpression>
     </column>
-    <index id="329" parent="281" name="project_section_id">
+    <column id="329" parent="281" name="unit_cost">
+      <Position>8</Position>
+      <DataType>decimal(6,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0.00</DefaultExpression>
+    </column>
+    <column id="330" parent="281" name="other_costs">
+      <Position>9</Position>
+      <DataType>decimal(6,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0.00</DefaultExpression>
+    </column>
+    <index id="331" parent="281" name="project_section_id">
       <ColNames>project_section_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="330" parent="281" name="product_id">
+    <index id="332" parent="281" name="product_id">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="331" parent="281" name="PRIMARY">
+    <key id="333" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="332" parent="281" name="section_compartments_ibfk_1">
+    <foreign-key id="334" parent="281" name="section_compartments_ibfk_1">
       <ColNames>project_section_id</ColNames>
       <RefTableName>project_sections</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="333" parent="281" name="section_compartments_ibfk_2">
+    <foreign-key id="335" parent="281" name="section_compartments_ibfk_2">
       <ColNames>product_id</ColNames>
       <RefTableName>products</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="334" parent="282" name="first_name">
+    <column id="336" parent="282" name="first_name">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="335" parent="282" name="last_name">
+    <column id="337" parent="282" name="last_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="336" parent="282" name="email">
+    <column id="338" parent="282" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="337" parent="282" name="username">
+    <column id="339" parent="282" name="username">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="282" name="password">
+    <column id="340" parent="282" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="282" name="address">
+    <column id="341" parent="282" name="address">
       <Position>6</Position>
       <DataType>varchar(500)|0s</DataType>
     </column>
-    <column id="340" parent="282" name="phone">
+    <column id="342" parent="282" name="phone">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <column id="341" parent="282" name="active">
+    <column id="343" parent="282" name="active">
       <Position>8</Position>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
     </column>
-    <column id="342" parent="282" name="refresh_token">
+    <column id="344" parent="282" name="refresh_token">
       <Position>9</Position>
       <DataType>varchar(500)|0s</DataType>
     </column>
-    <index id="343" parent="282" name="email">
+    <index id="345" parent="282" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="344" parent="282" name="username">
+    <index id="346" parent="282" name="username">
       <ColNames>username
 password</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="345" parent="282" name="PRIMARY">
+    <key id="347" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="346" parent="282" name="email">
+    <key id="348" parent="282" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <column id="347" parent="283" name="username">
+    <column id="349" parent="283" name="username">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="283" name="role">
+    <column id="350" parent="283" name="role">
       <Position>2</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="349" parent="283" name="role">
+    <index id="351" parent="283" name="role">
       <ColNames>role</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="350" parent="283" name="PRIMARY">
+    <key id="352" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username
 role</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="351" parent="283" name="users_roles_ibfk_1">
+    <foreign-key id="353" parent="283" name="users_roles_ibfk_1">
       <ColNames>username</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>username</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="352" parent="283" name="users_roles_ibfk_2">
+    <foreign-key id="354" parent="283" name="users_roles_ibfk_2">
       <ColNames>role</ColNames>
       <RefTableName>roles</RefTableName>
       <RefColNames>role</RefColNames>

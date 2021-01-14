@@ -3,7 +3,7 @@ package com.mycompany.asms.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"id", "project_section_id", "compartment_name", "product_id", "length", "width", "unit_price",  "product"})
+@JsonPropertyOrder({"id", "project_section_id", "compartment_name", "product_id", "length", "width", "unit_cost", "other_costs", "unit_price",  "product"})
 public class SectionCompartment extends Entity {
 
     @JsonProperty
@@ -23,6 +23,12 @@ public class SectionCompartment extends Entity {
 
     @JsonProperty
     private double width;
+
+    @JsonProperty("unit_cost")
+    private double unitCost;
+
+    @JsonProperty("other_costs")
+    private double otherCosts;
 
     @JsonProperty("unit_price")
     private double unitPrice;
@@ -91,6 +97,24 @@ public class SectionCompartment extends Entity {
     public void setUnitPrice(double unitPrice) {
         markFieldAsSet("unitPrice");
         this.unitPrice = unitPrice;
+    }
+
+    public double getUnitCost() {
+        return unitCost;
+    }
+
+    public void setUnitCost(double unitCost) {
+        markFieldAsSet("unitCost");
+        this.unitCost = unitCost;
+    }
+
+    public double getOtherCosts() {
+        return otherCosts;
+    }
+
+    public void setOtherCosts(double otherCosts) {
+        markFieldAsSet("otherCosts");
+        this.otherCosts = otherCosts;
     }
 
     public Product getProduct() {

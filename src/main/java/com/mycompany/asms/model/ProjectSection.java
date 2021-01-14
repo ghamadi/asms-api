@@ -69,8 +69,24 @@ public class ProjectSection extends Entity {
     public double totalDuePerSection(){
         if(compartments == null || compartments.isEmpty()) return 0;
         return compartments.values().stream()
-                                    .map(c -> (c.getLength()*c.getWidth()*c.getUnitPrice()))
-                                    .reduce(Double::sum)
-                                    .get();
+                .map(c -> (c.getLength()*c.getWidth()*c.getUnitPrice()))
+                .reduce(Double::sum)
+                .get();
+    }
+
+    public double totalLengthsPerSection() {
+        if(compartments == null || compartments.isEmpty()) return 0;
+        return compartments.values().stream()
+                .map(SectionCompartment::getLength)
+                .reduce(Double::sum)
+                .get();
+    }
+
+    public double totalWidthsPerSection() {
+        if(compartments == null || compartments.isEmpty()) return 0;
+        return compartments.values().stream()
+                .map(SectionCompartment::getWidth)
+                .reduce(Double::sum)
+                .get();
     }
 }

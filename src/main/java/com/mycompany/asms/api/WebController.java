@@ -58,12 +58,11 @@ public class WebController {
 
     private ResponseEntity<?> sendAuthenticationResponse(UserDetails userDetails) {
         final String jwt = jwtUtil.generateToken(userDetails);
-        int maxAge = 60 * 30;
 
         AuthenticationResponse authResponse = new AuthenticationResponse(jwt, jwtLifespan);
 
         HttpHeaders headers = new HttpHeaders();
-        String cookie = String.format("refresh_token=%s; Max-Age=%d; HttpOnly", generateRefreshToken(userDetails), refreshTokenLifespan);
+        String cookie = String.format("refresh_token=%s; Max-Age=%d; SameSite=Strict; Secure=true; HttpOnly", generateRefreshToken(userDetails), refreshTokenLifespan);
         headers.add("Set-Cookie", cookie);
 
         return ResponseEntity.status(HttpStatus.OK)
@@ -107,8 +106,9 @@ public class WebController {
 
     @GetMapping("/exit")
     public ResponseEntity<?> logout(@RequestHeader(value = "Authorization") String jwt) {
+        System.out.println("JWT " + jwt );
         int recordsUpdated = new UserDAO(jdbcTemplate).updateRefreshToken(null, jwtUtil.extractUsername(jwt.substring("bearer_".length())));
-        String cookie = "refresh_token=; Max-Age=0; SameSite=Strict; Secure=true; HttpOnly";
+        String cookie = "refresh_token=; Max-Age=0; HttpOnly";
         HttpHeaders headers = new HttpHeaders();
         headers.add("Set-Cookie", cookie);
 

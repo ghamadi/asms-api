@@ -29,6 +29,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/security/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/security/DataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/api/WebController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/dao/ProjectDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/dao/ProjectDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/model/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/model/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/model/ProjectSection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/model/ProjectSection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/model/SectionCompartment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/model/SectionCompartment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/asms/security/DataSourceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/asms/security/DataSourceConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +174,10 @@
       <workItem from="1610472731834" duration="4544000" />
       <workItem from="1610537710157" duration="437000" />
       <workItem from="1610538176137" duration="387000" />
-      <workItem from="1610640739026" duration="1626000" />
+      <workItem from="1610640739026" duration="8660000" />
+      <workItem from="1610801734315" duration="1357000" />
+      <workItem from="1610879766144" duration="2632000" />
+      <workItem from="1611041339672" duration="3702000" />
     </task>
     <task id="LOCAL-00001" summary="Incomplete steps towards an authentication API">
       <created>1592556217048</created>
@@ -215,7 +228,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610641758335</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed HikariPool-1 - jdbcUrl is required with driverClassName">
+      <created>1610643048030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610643048030</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed a bug in the /refresh_token mapping&#10;&#10;When username is invalid, the function was throwing a NullPointerException">
+      <created>1610652684820</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610652684820</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +271,8 @@
     <MESSAGE value="Fixed problem with the http cookie&#10;&#10;Added SameSite=None and Secure to the refresh_token http cookie" />
     <MESSAGE value="Reverted back to old state" />
     <MESSAGE value="Added unit_cost and other_costs to section_compartments&#10;&#10;Also amended the corresponding DAO and model classes accordingly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unit_cost and other_costs to section_compartments&#10;&#10;Also amended the corresponding DAO and model classes accordingly" />
+    <MESSAGE value="Fixed HikariPool-1 - jdbcUrl is required with driverClassName" />
+    <MESSAGE value="Fixed a bug in the /refresh_token mapping&#10;&#10;When username is invalid, the function was throwing a NullPointerException" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug in the /refresh_token mapping&#10;&#10;When username is invalid, the function was throwing a NullPointerException" />
   </component>
 </project>

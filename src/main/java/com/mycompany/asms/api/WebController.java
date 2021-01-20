@@ -62,7 +62,7 @@ public class WebController {
         AuthenticationResponse authResponse = new AuthenticationResponse(jwt, jwtLifespan);
 
         HttpHeaders headers = new HttpHeaders();
-        String cookie = String.format("refresh_token=%s; Max-Age=%d; SameSite=Strict; Secure=true; HttpOnly", generateRefreshToken(userDetails), refreshTokenLifespan);
+        String cookie = String.format("refresh_token=%s; Max-Age=%d; SameSite=None; Secure=true; HttpOnly", generateRefreshToken(userDetails), refreshTokenLifespan);
         headers.add("Set-Cookie", cookie);
 
         return ResponseEntity.status(HttpStatus.OK)

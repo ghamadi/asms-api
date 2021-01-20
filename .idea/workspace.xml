@@ -27,7 +27,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="" />
+    <list default="true" id="b3d7aa53-a057-4017-b46f-2452c7ba0249" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/asms/api/WebController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,7 +169,8 @@
       <workItem from="1610640739026" duration="8660000" />
       <workItem from="1610801734315" duration="1357000" />
       <workItem from="1610879766144" duration="2632000" />
-      <workItem from="1611041339672" duration="4013000" />
+      <workItem from="1611041339672" duration="4894000" />
+      <workItem from="1611138335759" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="Incomplete steps towards an authentication API">
       <created>1592556217048</created>
@@ -237,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611072104960</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="workspace.xml changed">
+      <created>1611072363017</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611072363017</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +293,7 @@
     <MESSAGE value="Fixed HikariPool-1 - jdbcUrl is required with driverClassName" />
     <MESSAGE value="Fixed a bug in the /refresh_token mapping&#10;&#10;When username is invalid, the function was throwing a NullPointerException" />
     <MESSAGE value="Added SameSite=strict to cookie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added SameSite=strict to cookie" />
+    <MESSAGE value="workspace.xml changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml changed" />
   </component>
 </project>

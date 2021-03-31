@@ -4,4 +4,4 @@ This is my very first attempy at a backend application. It is part of a full-sta
 
 It is now in the process of being depracated in favor of a more stable, multi-user version that is intended for commercial use upon production.
 
-The source code is open now for demonstration purposes only.
+The source code is open now for demonstration purposes only. Documentation of the API endpoints will follow.
